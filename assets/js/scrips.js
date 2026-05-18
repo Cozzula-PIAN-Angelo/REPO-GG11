@@ -103,3 +103,114 @@ let { title, author, year } = record; //destrutturo con let quando devo manipola
 ((title = "Led Zeppelin IV"), (author = "Led Zeppelin")); //Modifica il valore delle varialil senza intaccarel'oggetto originale
 console.log(record);
 anotherObject.textContent = `${title},${author},${year}`;
+
+//spread e rest
+
+const myNamesArray = ["Pippo", "Pluto", "Paperino"];
+// const copyNames = myNamesArray; // La copia con l'assegnazione crea due cloni, per cui se cambia il secondo cambia anche il primo
+const copyNames = [...myNamesArray];
+
+console.log(myNamesArray, copyNames);
+
+copyNames[1] = "Paperone";
+console.log(myNamesArray, copyNames);
+
+//copiare
+
+const firstPerson = {
+  personName: "Mario",
+  address: {
+    via: "Roma",
+    citta: "Napoli",
+  },
+};
+
+const otherAddress = { ...firstPerson.address };
+
+const otherPerson = { ...firstPerson };
+
+otherPerson.address = { ...otherAddress };
+
+otherPerson.address.citta = "Milano";
+
+console.log(firstPerson);
+console.log(otherPerson);
+
+const mySum = (...values) => {
+  let myTotal = 0;
+  for (let i = 0; i < values.length; i++) {
+    myTotal += values[i];
+  }
+  return myTotal;
+};
+console.log(`somma con tre parametri: ${mySum(3, 4, 5)}`);
+console.log(`somma con due parametri: ${mySum(8, 9)}`);
+console.log(`somma con quattro parametri: ${mySum(12, 23, 45, 10)}`);
+
+// Metodi array ES6+
+namesArray.forEach((name) => {
+  //equivale al for o al for classico
+  console.log(name);
+});
+
+const multiply = firstNumberArray.map((number) => {
+  return number * 2;
+});
+console.log(firstNumberArray);
+console.log(multiply);
+//FILTER
+
+const genericNumbers = [2, 5, 16, 23, 75, 98, 67];
+
+const pairs = genericNumbers.filter((number) => number % 2 === 0);
+console.log(pairs);
+
+const genericNames = [
+  "Antonio",
+  "Nicola",
+  "Anna",
+  "Giovanni",
+  "Anselmo",
+  "Mario",
+];
+const namesWithA = genericNames.filter((name) => name.startsWith("A"));
+
+console.log(namesWithA);
+
+//INCLUDES
+
+const users = [
+  {
+    userName: "Mario",
+    age: 25,
+  },
+  {
+    userName: "Anna",
+    age: 22,
+  },
+  {
+    userName: "Stefano",
+    age: 28,
+  },
+];
+
+console.log(users.includes("Mario"));
+const finded = users.find((user) => user.userName === "Mario");
+console.log(finded);
+
+//RECUCE
+const total = genericNumbers.reduce((acc, number) => acc + number);
+console.log(total);
+
+//SORT
+
+console.log(genericNumbers.sort()); //se non usao per generare un array ordiato, modifica l'ordine dell'array originario
+console.log(genericNumbers);
+console.log(genericNumbers[3]);
+
+//SORT
+
+console.log(genericNumbers.reverse());
+console.log(genericNumbers.sort);
+const correctedSort = genericNumbers.sort((a, b) => a - b);
+console.log(correctedSort);
