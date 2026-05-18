@@ -74,18 +74,32 @@ function container() {
 container.call("Antonio");
 container.call("Giovanna");
 
-//contatore
+// destructuring
+const notObject = document.querySelector("#notObject");
+const yesArray = document.querySelector("#yesArray");
+const yesObject = document.querySelector("#yesObject");
+const modernObject = document.querySelector("#modernObject");
 
-const counter = {
-  seconds: 0,
-  start: function () {
-    const myCounter = setInterval(() => {
-      this.seconds++;
-      console.log(this.seconds);
-      if (this.seconds === 10) {
-        clearInterval(myCounter);
-      }
-    }, 1000);
-  },
+const namesArray = ["Pippo", "Pluto", "Paperino"];
+const student = {
+  name: "Mario",
+  surname: "Rossi",
+  age: 25,
 };
-counter.start();
+
+const record = {
+  title: "dark side of the moon",
+  author: "Pink Floyd",
+  year: 1973,
+};
+notObject.textContent = student;
+yesArray.textContent = namesArray;
+yesObject.textContent = `${student.studentName}, ${student.surname}, ${student.age}`;
+
+const { studentName, surname, age } = student; //se ;'oggetto si modifica i valori delle variabili non cambiano, in qanto con questa con questa destrutturazione sono fotografie dell'oggetto in un dato punto
+modernObject.textContent = `${studentName}, ${surname}, ${age}`;
+
+let { title, author, year } = record; //destrutturo con let quando devo manipolare i valori dell'oggetto  senza intaccare l'oggetto stesso
+((title = "Led Zeppelin IV"), (author = "Led Zeppelin")); //Modifica il valore delle varialil senza intaccarel'oggetto originale
+console.log(record);
+anotherObject.textContent = `${title},${author},${year}`;
