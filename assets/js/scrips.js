@@ -15,7 +15,6 @@ return a + b;
 
 //scrittura compatta
 const arrowSum = (a, b) => (arrowResult.textContent = a + b); // return implicito, senza graffe, quando il corpo della funzione è una sola operazione DA SCRIVERE OBBLIGATORIAMENTE IN UNA SOLA RIGA
-return a + b;
 
 traditionalCode.innerHTML =
   "<code>const traditionalSum = function (a + b) {return a + b;}</code>";
